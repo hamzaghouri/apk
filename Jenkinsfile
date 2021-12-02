@@ -16,25 +16,19 @@ pipeline {
           stage('Build APK & AAB') {
               steps {
                 echo 'Copying settings scripts'
-                sh 'aws s3 cp s3://cb-jenkins-bucket/prod-mobile/.env ./.env'
-                sh 'aws s3 cp s3://cb-jenkins-bucket/prod-mobile/google-services.json ./android/app/google-services.json'
-                sh 'aws s3 cp s3://cb-jenkins-bucket/prod-mobile/google-services.json ./android/app/src/debug/google-services.json'
-                sh 'aws s3 cp s3://cb-jenkins-bucket/prod-mobile/google-services.json ./android/app/src/release/google-services.json'
-                echo 'Building application'
-                sh 'yarn'
-                sh 'npm run build:android:bundleUnix'
+         
               }
             
           }
 
-       // stage('Pushing AAB to S3') {
-         // steps {
-           // echo 'Pushing APK to s3'
-          //  sh 'cp android/app/build/outputs/bundle/release/app-release.aab hisaab-prod.aab'
-            // sh 'aws s3 cp hisaab-prod.aab s3://cb-jenkins-bucket/apk_builds/prod/hisaab-prod$(date -d "today" +"%H-%M-%m-%d-%Y").aab'
-        //  }
+       /stage('Pushing AAB to S3') {
+         steps {
+           echo 'Pushing APK to s3'
+         // sh 'cp android/app/build/outputs/bundle/release/app-release.aab hisaab-prod.aab'
+            //sh 'aws s3 cp hisaab-prod.aab s3://cb-jenkins-bucket/apk_builds/prod/hisaab-prod$(date -d "today" +"%H-%M-%m-%d-%Y").aab'
+       }
          
-       // }
+      }
 
 
 
