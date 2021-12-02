@@ -1,24 +1,21 @@
 pipeline {
     agent any
-        parameters {
-    }
     stages {
         stage('Test') {
             steps {
-              echo "Rollout Percentage :${ROLLOUT_PERCENT}"
-              echo "RELEASE_NAME : ${ROLLOUT_PERCENT}"
+
               echo 'Testing application..'
               echo 'Step skipped for now'
-        
+            }
+            }
           stage('Build APK & AAB') {
               steps {
                 echo 'Copying settings scripts'
          
               }
-            
           }
 
-       /stage('Pushing AAB to S3') {
+       stage('Pushing AAB to S3') {
          steps {
            echo 'Pushing APK to s3'
          // sh 'cp android/app/build/outputs/bundle/release/app-release.aab hisaab-prod.aab'
@@ -36,4 +33,5 @@ pipeline {
           // }
            
     //}
+}
 }
