@@ -26,7 +26,7 @@ pipeline {
 
 
 
-         stage('Upload APK') {
+         stage('Upload APK playstore') {
            steps {
                echo 'Uploading to Playstore'
             // Upload the APK to Google Play
