@@ -34,5 +34,13 @@ pipeline {
            }
            
     }
+         stage('Deploy') {
+           steps {
+               echo 'Uploading to Playstore'
+            // Upload the APK to Google Play
+           // androidApkUpload filesPattern: 'hisaab-prod.aab', googleCredentialsId: 'CreditBook', releaseName: "${RELEASE_NAME}", rolloutPercentage: "${ROLLOUT_PERCENT}", trackName: "${RELEASE_TRACK}"
+           }
+           
+    }
 }
 }
