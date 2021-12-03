@@ -11,7 +11,8 @@ pipeline {
           stage('Build APK & AAB') {
               steps {
                 echo 'Copying settings scripts'
-         
+                sh 'yarn'
+                sh 'npm run build:android:bundleUnix'
               }
           }
 
